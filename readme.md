@@ -2,13 +2,15 @@
 
 ## Description du projet
 
-Insérez ici une brève description de votre projet.
+Vous incarnez un oiseau (Gérard le pigeon ou Gilbert la mouette au choix) très énervé qui aimerait se venger des vilains citoyens ne les nourrissant pas, les enfants qui leur courent après ou qui leur jettent des cailloux.
+
+(Type bataille navale)
 
 ## Composition de l'équipe
 
-* membre 1 : responsable de ...
-* membre 2 : responsable de ...
-* etc
+* Estelle : responsable de ...
+* Inès  : responsable de ...
+
 
 
 

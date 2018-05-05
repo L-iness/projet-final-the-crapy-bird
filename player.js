@@ -1,37 +1,59 @@
-function player (){
+function Player (){
     this.name = "";
-    this.birds = [];
-    this.test = 0;
+    this.caracter = [];
+    this.try = 0;
+    this.bird = [];
 }
 
-function GenerateNewPlayer(player){
-    var answer=false;
-    }
-    answer = false;
+function NewPlayerName(Player){
+    var answer = false;
     while (answer == false){
-        var name = prompt("Player : Entrer your name");
+        var name = prompt("Enter your name :");
         if (name == null){
-            alert("Incorrect !");
+            alert("Nope ...");
             answer = false;
         }
         else if (name == ""){
-            alert("Incorrect !");
+            alert("Nope ...");
             answer = false;
         }
         else{
-            player.name = name;
-            answer = true;
+            Player.name = name;
         }
     }
-    player.birds = GenerateCaractereStart();
 }
 
-function GenerateCaractereStart(){
-    var first_caractere="Le Parisien", Second_caractere="La Parisienne et sa Poussette", third_caractere="La Voiture Parisienne", forth_caractere="Les Touristes", fifth_caractere="La Sortie Scolaire"; 
-    var lngCaractere = new Array();
-    lngCaractere[first_caractere]=1;
-    lngCaractere[second_caractere]=2;
-    lngCaractere[third_caractere]=3;
-    lngCaractere[forth_caractere]=4;
-    lngCaractere[fifth_caractere]=5;
+function NewPlayerBird (Player) {
+    if Player.name = name {
+        var bird = prompt("Enter your breed (pigeon or seagull) :")
+        if (bird == "pigeon"){
+            alert("Wow what a big pigeon you are !");
+            answer = true;
+        }
+        else if (bird == "seagull"){
+            alert("Fly little white bird ! Fly!");
+            answer = true;
+        }
+        else {
+            if (bird == null){
+                alert("Nope ...");
+                answer = false;
+            }
+            else {
+                alert("Nope...");
+                answer = false;
+            }
+        }
+    }
 }
+
+function NewPlayer (Player){
+    if (answer = true) {
+        alert("Welcome"+Player.name+", you are a "+Player.bird+". As you know, you are at war with the Parisians who abuse you! Avenge yourself! Here we go!")
+    }
+    else {
+        answer = false;   
+    }
+}
+
+Computer.caracter = CaracterStart();

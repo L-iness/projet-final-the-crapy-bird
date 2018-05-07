@@ -58,4 +58,4 @@ function NewPlayer (Player){
     }
 }
 
-Computer.caracter = CaracterStart(); 
+Computer.character = CharacterStart(); 

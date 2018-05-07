@@ -27,10 +27,21 @@ header
 	font-family: Chalkduster, fantasy;
 }
 
+nav ul li
+{
+	float:left;
+	text-align: center;
+	display: block;
+	list-style-type: none;
+}
+/*li flottant pour pouvoir les afficher horizontalement.
+On chache les puces et on centre le texte.
+*/
 
-
-
-
+section p
+{
+	display: flex;
+}
 
 
 
@@ -42,15 +53,25 @@ table
 {
 	border-collapse: collapse; /*Pour coller les bordures du tableau
 */
-	margin-left: 300px;
+	margin-left: 100px;
 }
 td
 {
 	border :1px solid black;
 }
 
+article aside {
+	display: flex;
+}
+article {
+	display: flex;
+	flex: 1;
+}
 aside 
 {
 	float : right;
-	margin-right: 150px;
+	margin-left: 200px;
+	margin-right: 5px;
+	position: relative;
+	flex: 1.2;
 }

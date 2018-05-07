@@ -1,0 +1,14 @@
+table
+{
+	border-collapse: collapse; /*Pour coller les bordures du tableau
+*/
+}
+td
+{
+	border :1px solid black;
+}
+
+aside 
+{
+	float : right;
+}

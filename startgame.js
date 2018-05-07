@@ -8,3 +8,17 @@ function Game(){
     alert("It's your turn to play "+Player.name+"! Blindly in the polluted sky of Paris, try to touch and scare off these evil Parisians!")
     StartGame(Player, Computer);
 }
+
+function Winner(Player, Computer){
+	var totaltry = 20;
+    if (Player.try > totaltry){
+        alert("You failed, "+Player.name+". The Parisians are stronger than you !");
+    }
+    else if(Player.try < totaltry){
+        alert(+Player.name+", you win ! ")
+    }
+    else{
+        alert("Any winner today ... . "+Player.name+", try again later.");
+    }
+    alert("Do you want to play again?")
+}

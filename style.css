@@ -1,7 +1,48 @@
+body
+{
+	margin: 10px 30;
+	padding: 0;
+	font-family: Verdana, sans-serif;
+}
+/*Définition des marges haute et basse à 10 px.
+Marge droite et gauche à 0.
+Padding à 0 pour éviter le paggind par défaut du body.
+*/
+
+#conteneur div
+{
+	width: 770px;
+	margin: 0 auto;
+	text-align: left;
+}
+/*Définition de la largeur de la division qui contient l'ensemble de la page à 770 px.
+Marge automatiqe pour centrer le bloc.
+*/
+
+header 
+{
+	text-align: center;
+	height: 258px; /*Hauteur de header contenant le titre du site
+	*/
+	font-family: Chalkduster, fantasy;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 table
 {
 	border-collapse: collapse; /*Pour coller les bordures du tableau
 */
+	margin-left: 300px;
 }
 td
 {
@@ -11,4 +52,5 @@ td
 aside 
 {
 	float : right;
+	margin-right: 150px;
 }

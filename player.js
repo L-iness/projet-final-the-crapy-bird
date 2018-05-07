@@ -41,7 +41,7 @@ function NewPlayerBird (Player) {
                 answer2 = false; // la réponse est alors fausse
             }
             else { 
-                alert("Nope..."); // si l'utilisateur entre autre chose, on l'invertit que c'est faux
+                alert("Nope..."); // si l'utilisateur entre autre chose, on l'avertit que c'est faux
                 answer2 = false; //la réponse est donc fausse
             }
         }

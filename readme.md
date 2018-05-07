@@ -9,12 +9,14 @@ Vous incarnez un oiseau (Gérard le pigeon ou Gilbert la mouette au choix) très
 ## Composition de l'équipe
 
 * Estelle :
-  - Début Jeu (JS) : partie joueur (accueil avec pseudo et type)
-  - 
+  - Début Jeu (JS) : 
+      - partie joueur (accueil avec pseudo et type)
+      - partie début du jeu
  
 * Inès  :
   - Début Site Internet (HTML)
-  - 
+  - Début feuille de style (CSS)
+  - Feuille de personnages (JS)
 
 
 

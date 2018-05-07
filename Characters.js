@@ -1,16 +1,11 @@
-function Characters (Computer){
-    var P1 = "Parisian";
-    var P2 = "Parisian and her stroller";
-    var P3 = "Car";
-    var P4 = "Class";
-    var P5 = "Tourists";
+function Characters (N,S){
+	var this.name = N;
+	var this.size = S;
+}    
 
-    var Psize = new Array ();
-    Psize[P1] = 1;
-    Psize[P2] = 2;
-    Psize[P3] = 3;
-    Psize[P4] = 4;
-    Psize[P5] = 5;
-
-}
+P1 = Characters ("Parisian",1);
+P2 = Characters ("Parisian and her stroller",2);
+P3 = Characters ("Car",3);
+P4 = Characters ("Class",4);
+P5 = Characters ("Tourists",5);
 

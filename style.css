@@ -1,64 +1,150 @@
 body
 {
 	margin: 10px 30;
-	padding: 0;
+	padding : 0;
+	text-align: center;
 	font-family: Verdana, sans-serif;
+	background : #AFEEEE;
 }
-/*Définition des marges haute et basse à 10 px.
-Marge droite et gauche à 0.
-Padding à 0 pour éviter le paggind par défaut du body.
+/*Marges haute et basse à 10 px et les marges droite et gauche à 30.
 */
 
-#conteneur div
+div#conteneur
 {
 	width: 770px;
 	margin: 0 auto;
 	text-align: left;
+	border : 2px solid #FF7F50;
+	background : #fff;
 }
-/*Définition de la largeur de la division qui contient l'ensemble de la page à 770 px.
-Marge automatiqe pour centrer le bloc.
+/*Largeur de la division qui contient l'ensemble de la page à 770 px.
+Marge automatique permet de centrer le bloc.
+Rétablissement de l'alignement à gauche changé plus haut pour le centrage de l'élément.
+Bordure autour de l'ensemble de la page et blanc pour le fond.
 */
 
-header 
+h1#header 
 {
-	text-align: center;
-	height: 258px; /*Hauteur de header contenant le titre du site
-	*/
-	font-family: Chalkduster, fantasy;
+	height: 258px;
+	background : /*mettre image de fond correspondant aux 258 px : url(image.jpg) no-repeat left top;*/
+	margin : 0;
+}
+/*Hauteur de la partie header contenant le titre du site.
+*/
+
+h1#header a
+{
+	width: 400px;
+	height: 70px;
+	display: block; /*Donne mêmes dimensions au lien qu'à l'image insérée*/
+	background : /*url(title.jpg) no-repeat*/;
+	position: relative;
+	left: 350px;
+	top: 15px;
+	text-indent: -5000px; /*Cacher le texte hors de la page*/
 }
 
-nav ul li
+ul#menu
 {
-	float:left;
-	text-align: center;
-	display: block;
+	height: 35px;
+	margin: 30;
+	padding: 0;
+	background : #FFA07A /* ou mettre une image url(img.jpg) repeat-x 0 -25px*/;
 	list-style-type: none;
 }
-/*li flottant pour pouvoir les afficher horizontalement.
-On chache les puces et on centre le texte.
+/*Hauteur au menu correspondant à la taille de l'image utilisée en fond.
+Image de fond avec décalage de 25 px vers le haut.
 */
 
-section p
+ul#menu li
 {
-	display: flex;
+	float: left;
+	text-align: center;
+}
+/*li flottants pour afficher horizontalement.
+Cache les puces + Texte centré.*/
+
+ul#menu li a
+{
+	width: 188.5px ;
+	line-height: 30px ;
+	font-size: 1.2em ;
+	font-weight: bold ;
+	letter-spacing: 2px ;
+	color: #fff ;
+	display: block ;
+	text-decoration: none ;
+	border-right: 2px solid #FF7F50 ;
 }
 
 
-
-
-
-
-
-table
+ul#menu li a:hover
 {
-	border-collapse: collapse; /*Pour coller les bordures du tableau
-*/
-	margin-left: 100px;
+	background: /*url(bg_menu.gif) repeat-x 0 0 */;
 }
-td
+/*Décalage image de fond au passage de la souris pour laisser apparaître l'état survolé de l'image.*/
+
+
+div#contenu
 {
-	border :1px solid black;
+	padding: 0 30px 0 100px;
+	background : /*url(image.jpg) no-repeat 15px 15px*/;
 }
+
+div#contenu h2
+{
+	padding-left: 25px;
+	line-height: 25px;
+	font-size: 1.4em;
+	background : /*url(image.jpg) no-repeat left bottom;*/
+	color : #9b2;
+	border-bottom: 2px solid #FF7F50;
+
+}
+/* Mise en forme du titre de page, une petite image, on décale le texte en fonction de l'image, on donne une couleur au texte et on met une bordure basse.*/
+
+
+div#contenu h3
+{
+	margin-left: 15px;
+	padding-left: 5px;
+	border-bottom: 1px solid #9b2;
+	border-left: 3px solid #9b2;
+	color: #9b2;
+}
+
+
+div#contenu p
+{
+	text-align: justify;
+	text-indent: 2em;
+	line-height: 1.7em;
+}
+/*Alignement justifié, alinéa et hauteur de ligne supérieur à l'état normal. */
+
+div#contenu a
+{
+	color: #8a0;
+}
+
+
+div#contenu a:hover
+{
+	color: #9b2;
+}
+/*Mise en forme des liens contenus dans la page.*/
+
+
+p#footer
+{
+	margin: 0;
+	padding-right: 10px;
+	line-height: 30px;
+	text-align: right;
+	color: #8a0;
+}
+/*Mise en forme pied de page.*/
+
 
 article aside {
 	display: flex;
@@ -70,8 +156,16 @@ article {
 aside 
 {
 	float : right;
-	margin-left: 200px;
+	margin-left: 400px;
 	margin-right: 5px;
 	position: relative;
 	flex: 1.2;
+}
+
+
+table
+{
+	border-collapse: collapse; /*Pour coller les bordures du tableau
+*/
+	margin-left: 100px;
 }

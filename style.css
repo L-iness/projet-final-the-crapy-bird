@@ -67,7 +67,7 @@ Cache les puces + Texte centré.*/
 
 ul#menu li a
 {
-	width: 283.7px ;
+	width: 226.5px ;
 	line-height: 30px ;
 	font-size: 1.2em ;
 	font-weight: bold ;
@@ -77,13 +77,6 @@ ul#menu li a
 	text-decoration: none ;
 	border-right: 2px solid #FF7F50 ;
 }
-
-
-ul#menu li a:hover
-{
-	background: /*url(bg_menu.gif) repeat-x 0 0 */;
-}
-/*Décalage image de fond au passage de la souris pour laisser apparaître l'état survolé de l'image.*/
 
 
 div#contenu
@@ -127,13 +120,6 @@ div#contenu a
 {
 	color: #8a0;
 }
-
-
-div#contenu a:hover
-{
-	color: #9b2;
-}
-/*Mise en forme des liens contenus dans la page.*/
 
 
 p#footer

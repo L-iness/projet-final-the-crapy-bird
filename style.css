@@ -25,8 +25,9 @@ Bordure autour de l'ensemble de la page et blanc pour le fond.
 
 h1#header 
 {
-	height: 258px;
-	background : /*mettre image de fond correspondant aux 258 px : url(image.jpg) no-repeat left top;*/
+	height: 250px;
+	background : url(title.png) no-repeat left top;
+	/*mettre image de fond correspondant aux 250 px.*/
 	margin : 0;
 }
 /*Hauteur de la partie header contenant le titre du site.
@@ -66,7 +67,7 @@ Cache les puces + Texte centré.*/
 
 ul#menu li a
 {
-	width: 188.5px ;
+	width: 283.7px ;
 	line-height: 30px ;
 	font-size: 1.2em ;
 	font-weight: bold ;
@@ -118,7 +119,7 @@ div#contenu p
 {
 	text-align: justify;
 	text-indent: 2em;
-	line-height: 1.7em;
+	line-height: 1em;
 }
 /*Alignement justifié, alinéa et hauteur de ligne supérieur à l'état normal. */
 
@@ -168,4 +169,5 @@ table
 	border-collapse: collapse; /*Pour coller les bordures du tableau
 */
 	margin-left: 100px;
+	margin-top: 55px;
 }

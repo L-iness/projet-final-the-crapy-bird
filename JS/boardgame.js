@@ -52,19 +52,7 @@ touche = [
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-function generer1(Bat)
+function generate(Char)
 {
 	var C = [];
 			//generer une coordonnée et un sens
@@ -74,7 +62,7 @@ function generer1(Bat)
 			var select = Math.floor(Math.random()*20);
 			// quand on a une ligne / col
 			// choisir un point de start
-			var start = Math.floor(Math.random()*(10-Bat.size));
+			var start = Math.floor(Math.random()*(10-Char.size));
 		for(var i = 0; i < Bat.size; i++)
 		{
 			//suivre les coordonées "size" fois
@@ -92,27 +80,27 @@ function generer1(Bat)
 
 
 
-function genererTout()
+function generateAll()
 {
-	var tab=[];
-	for(var i = 0; i < batTab.length; i++)
+	var array=[];
+	for(var i = 0; i < charArray.length; i++)
 	{
-		var coords = generer1(batTab[i]);
+		var coords = generer1(charArray[i]);
 		// il faut tester si les coords se chevauchent et si oui recommencer
-		tab.append(coords);
+		array.append(coords);
 	}
-	return tab;
+	return array;
 }
 
 
 
-function verifier(batTab,Coord)
+function verification(charArray,Coord)
 {
-	for(var i = 0; i < batTab.length; i++)
+	for(var i = 0; i < charArray.length; i++)
 	{
-		for(var j = 0; j < batTab[i].length; j++)
+		for(var j = 0; j < charArray[i].length; j++)
 		{
-			if (batTab[i][j]==Coord)
+			if (charArray[i][j]==Coord)
 			{
 				return [i,j];
 			}
@@ -121,16 +109,16 @@ function verifier(batTab,Coord)
 	return [1000,1000];
 } 
 
-function BTab(tab)
+function charArray(array)
 {
-	for(var i = 0; i < tab.length; i++)
+	for(var i = 0; i < array.length; i++)
 	{
-		for(var j = 0; j < tab[i].length; j++)
+		for(var j = 0; j < array[i].length; j++)
 		{
-			tab[i][j] = true;
+			array[i][j] = true;
 		}
 	}
-	return tab;
+	return array;
 }
 
 
@@ -140,13 +128,13 @@ function BTab(tab)
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-var bateaux = genererTout();
-var booleens = BTab(bateaux);
+var characters = generateAll();
+var booleens = charArray(characters);
 
 //...
 
 var coo = [3,5];
-var test = verifier(bateaux,coo);
+var test = verifier(characters,coo);
 if(test != [1000,1000])
 {
 	booleens[test[0]][test[1]] = false;

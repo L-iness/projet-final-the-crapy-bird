@@ -1,11 +1,11 @@
 function Characters (N,S){
-	var this.name = N;
-	var this.size = S;
+	var this.nom    = N;
+	var this.taille = S;
 }    
 
 
 
-BatTab =
+persoTab =
 [
 	new Characters ("Parisian",1),
 	new Characters ("Parisian and her stroller",2),

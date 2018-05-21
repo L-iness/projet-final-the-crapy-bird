@@ -1,7 +1,7 @@
 function Player (){
     this.name = "";
     this.caracter = [];
-    this.try = 0;
+    this.nbessai = 0;
     this.bird = [];
 }
 

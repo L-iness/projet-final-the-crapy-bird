@@ -2,12 +2,12 @@
 
 
 
-{generer les persos} // verif
+generer les persos + verif
 
 
-{faire n fois :}
-		{demander une case}
-		verifier si le perso est touché /détruit
+faire n fois :
+		demander une case								
+		verifier si le perso est touché/détruit
 		l'afficher (web)
 
 
@@ -52,7 +52,7 @@ touche = [
 
 
 
-function generer(Char)
+function generer1(Char)
 {
 	var C = [];
 			//generer une coordonnée et un sens
@@ -80,13 +80,34 @@ function generer(Char)
 
 
 
+
+
 function toutGenerer()
 {
 	var tableau=[];
-	for(var i = 0; i < persoTab.longueur; i++)
+	for(var i = 0; i < persoTab.length; i++)
 	{
-		var coords = generer1(persoTab[i]);
-		// il faut tester si les coords se chevauchent et si oui recommencer
+		var valide = false;
+		while(valide!=true)
+		{
+			var coords = generer1(persoTab[i]);
+			valide = true;
+			// il faut tester si les coords se chevauchent et si oui recommencer
+			for (var j = 0 ; j < coords.length ; j++)
+			{
+				for(var k = 0 ; k < tableau.length ; k++)
+				{
+					for(var l = 0 ; l < tableau[k].length ; l++)
+					{
+						if(coords[j]==tableau[k][l])
+						{
+							//erreur chevauchement
+							valide = false;
+						}
+					}
+				}
+			}
+		}
 		tableau.append(coords);
 	}
 	return tableau;
@@ -96,9 +117,9 @@ function toutGenerer()
 
 function verification(persoTab,Coord)
 {
-	for(var i = 0; i < persoTab.longueur; i++)
+	for(var i = 0; i < persoTab.length; i++)
 	{
-		for(var j = 0; j < persoTab[i].longueur; j++)
+		for(var j = 0; j < persoTab[i].length; j++)
 		{
 			if (persoTab[i][j]==Coord)
 			{
@@ -113,9 +134,9 @@ function verification(persoTab,Coord)
 
 function persoTab(tableau)
 {
-	for(var i = 0; i < tableau.longueur; i++)
+	for(var i = 0; i < tableau.length; i++)
 	{
-		for(var j = 0; j < tableau[i].longueur; j++)
+		for(var j = 0; j < tableau[i].length; j++)
 		{
 			tableau[i][j] = true;
 		}
@@ -129,7 +150,7 @@ function afficher(coords,bool)
 {
 	var x = coords[0];
 	var y = coords[1];
-	var cellnb = 1 + x + y*10;
+	var cellnb = 1 + x + y*10; 																		// ou 2 suivant si le innerHTML revoit du kk
 	var input = document.getElementById("tableau").innerHTML;
 	var tab = input.split("bgcolor=\"#"); // chaque case : "0000FF....."
 	if (bool)
@@ -147,10 +168,10 @@ function afficher(coords,bool)
 function persoEnVie(tab)
 {
 	var S = "";
-	for(var i = 0; i < tab.longueur; i++)  // pour chaque perso
+	for(var i = 0; i < tab.length; i++)  // pour chaque perso
 	{
 		var bool = false;
-		for(var j = 0; j < tab[i].longueur; j++)// on verifie si il est mort
+		for(var j = 0; j < tab[i].length; j++)// on verifie si il est mort
 		{
 			if(tab[i][j]==true)
 			{
@@ -175,16 +196,7 @@ function persoEnVie(tab)
 }
 
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////A deplacer dans un autre fichier////////////////////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-var persos = toutGenerer();
-var booleens = persoTab(persos);
-var nbcoups = 20;
-
-//...
+/*
 
 while(nbcoups>0)
 {
@@ -204,3 +216,39 @@ while(nbcoups>0)
 	}
 	persoEnVie(booleens);
 }
+
+*/
+
+
+var persos = toutGenerer();
+var booleens = persoTab(persos);
+var nbcoups = 20;
+var coupsjoue = 0;
+
+
+function tester(coords)
+{
+	if(coupsjoue<=nbcoups)
+	{
+		var test = verifier(persos,coords);
+		if(test != [1000,1000])
+		{
+			booleens[test[0]][test[1]] = false;
+			afficher(coords,false);
+			alert("Yeah, on its face !");
+		}
+		else
+		{
+			alert("Oh ! Missed !");
+			afficher(coords,true);
+			nbcoups -= 1;
+		}
+		persoEnVie(booleens);
+	}
+	else
+	{
+		alert("No more poo !");
+	}
+	coupsjoue += 1;
+}
+

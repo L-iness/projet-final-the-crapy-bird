@@ -102,8 +102,6 @@ div#contenu h3
 {
 	margin-left: 15px;
 	padding-left: 5px;
-	border-bottom: 1px solid #9b2;
-	border-left: 3px solid #9b2;
 	color: #9b2;
 }
 
@@ -155,5 +153,6 @@ table
 	border-collapse: collapse; /*Pour coller les bordures du tableau
 */
 	margin-left: 100px;
-	margin-top: 55px;
+	margin-top: 70px;
+	color: #FFFFFF
 }

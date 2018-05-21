@@ -2,12 +2,12 @@
 
 
 
-{generer les bateaux} // verif
+{generer les persos} // verif
 
 
 {faire n fois :}
 		{demander une case}
-		verifier si le batteau est touché /détruit
+		verifier si le perso est touché /détruit
 		l'afficher (web)
 
 
@@ -65,7 +65,7 @@ function generer(Char)
 			var debut = Math.floor(Math.random()*(10-Char.taille));
 		for(var i = 0; i < Char.taille; i++)
 		{
-			//suivre les coordonées "taille" fois
+			//suivre les coordonnées "taille" fois
 			if(select<10)
 			{
 				C.append([select,debut+i]);
@@ -124,7 +124,7 @@ function persoTab(tableau)
 }
 
 
-///////////////////////////////////////// IL FAUT QU'IL Y AIT id="tableau" dans le tableau de bataille navale
+///////////////////////////////////////// IL FAUT QU'IL Y AIT id="tableau" dans le tableau du jeu (web)
 function afficher(coords,bool)
 {
 	var x = coords[0];
@@ -147,10 +147,10 @@ function afficher(coords,bool)
 function persoEnVie(tab)
 {
 	var S = "";
-	for(var i = 0; i < tab.longueur; i++)  // pour chaque bateau
+	for(var i = 0; i < tab.longueur; i++)  // pour chaque perso
 	{
 		var bool = false;
-		for(var j = 0; j < tab[i].longueur; j++)// on verifit si il est mort
+		for(var j = 0; j < tab[i].longueur; j++)// on verifie si il est mort
 		{
 			if(tab[i][j]==true)
 			{
@@ -188,7 +188,7 @@ var nbcoups = 20;
 
 while(nbcoups>0)
 {
-	var coo = [3,5];// a recuperer avec le js
+	var coo = [3,5];// à recuperer avec le js
 	var test = verifier(persos,coo);
 	if(test != [1000,1000])
 	{

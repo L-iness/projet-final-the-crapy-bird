@@ -20,5 +20,5 @@ function Gagnant(Joueur, Computer){
     else{
         alert("Any winner today ... . "+Joueur.name+", try again later.");
     }
-    alert("Do you want to play again?")
+    alert("Do you want to play again?");
 }

@@ -1,7 +1,4 @@
 /**
-
-
-
 generer les persos + verif
 
 
@@ -47,11 +44,6 @@ touche = [
 
 /**/
 
-
-
-
-
-
 function generer1(Char)
 {
 	var C = [];
@@ -62,35 +54,34 @@ function generer1(Char)
 		var select = Math.floor(Math.random()*20);
 			// quand on a une ligne / col
 			// choisir un point de debut
-		var debut = Math.floor(Math.random()*(10-Char.taille));
-		for(var i = 0; i < Char.taille; i++)
+		var debut = Math.floor(Math.random()*(10-Char[1]));
+		
+		for(var i = 0; i < Char[1]; i++)
 		{
-			//suivre les coordonnées "taille" fois
+			//suivre les coordonnées "Char[1]" fois
 			if(select<10)
 			{
-				C.append([select,debut+i]);
+				C.push([select,debut+i]);
 			}
 			else
 			{
-				C.append([debut+i,select-10]);
+				C.push([debut+i,select-10]);
 			}
 		}
-		return C;
+	return C;
 }
-
-
 
 
 
 function toutGenerer()
 {
 	var tableau=[];
-	for(var i = 0; i < persoTab.length; i++)
+	for(var i = 0; i < tabDePerso.length; i++) // pour chaque char :
 	{
 		var valide = false;
 		while(valide!=true)
 		{
-			var coords = generer1(persoTab[i]);
+			var coords = generer1(tabDePerso[i]); // on en genere un nouveau
 			valide = true;
 			// il faut tester si les coords se chevauchent et si oui recommencer
 			for (var j = 0 ; j < coords.length ; j++)
@@ -99,7 +90,7 @@ function toutGenerer()
 				{
 					for(var l = 0 ; l < tableau[k].length ; l++)
 					{
-						if(coords[j]==tableau[k][l])
+						if(coords[j][0]==tableau[k][l][0] && coords[j][1]==tableau[k][l][1])
 						{
 							//erreur chevauchement
 							valide = false;
@@ -108,32 +99,36 @@ function toutGenerer()
 				}
 			}
 		}
-		tableau.append(coords);
-	}
+		// pas de chevauchement 
+		tableau.push(coords);
+	}// on recommence pour le suivant
+
+
 	return tableau;
 }
 
 
 
-function verification(persoTab,Coord)
+function verification(t,Coord) // verifie si Coord est compris dans t
 {
-	for(var i = 0; i < persoTab.length; i++)
+	for(var i = 0; i < t.length; i++)
 	{
-		for(var j = 0; j < persoTab[i].length; j++)
+		for(var j = 0; j < t[i].length; j++)
 		{
-			if (persoTab[i][j]==Coord)
+			if (t[i][j][0]==Coord[0] & t[i][j][1]==Coord[1])
 			{
 				return [i,j];
 			}
 		}
 	}
-	return [1000,1000];
+	return [1000,1000]; // si non, renvoit une erreur (valeur impossible)
 }
 
 
 
-function persoTab(tableau)
+function persoTab()
 {
+	var tableau = toutGenerer();
 	for(var i = 0; i < tableau.length; i++)
 	{
 		for(var j = 0; j < tableau[i].length; j++)
@@ -145,7 +140,6 @@ function persoTab(tableau)
 }
 
 
-///////////////////////////////////////// IL FAUT QU'IL Y AIT id="tableau" dans le tableau du jeu (web)
 function afficher(coords,bool)
 {
 	var x = coords[0];
@@ -153,102 +147,77 @@ function afficher(coords,bool)
 	var cellnb = 1 + x + y*10; 																		// ou 2 suivant si le innerHTML revoit du kk
 	var input = document.getElementById("tableau").innerHTML;
 	var tab = input.split("bgcolor=\"#"); // chaque case : "0000FF....."
-	if (bool)
+	for (var i = 1; i < tab.length; i++) {
+		tab[i] = ["bgcolor=\"#",tab[i]].join("");
+		console.log(tab[i]);
+	}
+	//alert(tab[cellnb]);
+	if (bool==true)
 	{
-		tab[cellnb].replace("0000FF","00FF00");
+		tab[cellnb].replace(/0000FF/gi,"00FF00");
 	}
 	else
 	{
-		tab[cellnb].replace("0000FF","FF0000");
+		tab[cellnb].replace(/0000FF/gi,"FF0000");
 	}
-	var sortie = tab.join();  // on prend un tableau : ["a","b","c"] --> "abc"
+	//alert(tab[cellnb]);
+	var sortie = tab.join("");  // on prend un tableau : ["a","b","c"] --> "abc"
 	document.getElementById("tableau").innerHTML = sortie;
 }
+
+
 
 function persoEnVie(tab)
 {
 	var S = "";
 	for(var i = 0; i < tab.length; i++)  // pour chaque perso
 	{
-		var bool = false;
+		var b = false;
 		for(var j = 0; j < tab[i].length; j++)// on verifie si il est mort
 		{
 			if(tab[i][j]==true)
 			{
-				bool = true;
+				b = true;
 			}
 		}
-		if(bool) // et on l'affiche
+		if(b==true) // et on l'affiche
 		{
-			[S, persoTab[i].nom, " alive.\n"].join();
+			 S = [S, tabDePerso[i][0], " is alive.\n"].join("");
 		}
 		else
 		{
-			[S,persoTab[i].nom," dead.\n"].join();
+			S = [S,tabDePerso[i][0]," is dead.\n"].join("");
 		}
 	}
 	alert(S);
-	// sortie : 
-	//		a alive.
-	//		b dead.
-	//		c dead.
-	//		d alive.
 }
-
-
-/*
-
-while(nbcoups>0)
-{
-	var coo = [3,5];// à recuperer avec le js
-	var test = verifier(persos,coo);
-	if(test != [1000,1000])
-	{
-		booleens[test[0]][test[1]] = false;
-		afficher(coo,false);
-		alert("Yeah, on its face !");
-	}
-	else
-	{
-		alert("Oh ! Missed !");
-		afficher(coo,true);
-		nbcoups -= 1;
-	}
-	persoEnVie(booleens);
-}
-
-*/
-
-
-var persos = toutGenerer();
-var booleens = persoTab(persos);
-var nbcoups = 20;
-var coupsjoue = 0;
 
 
 function tester(coords)
 {
+
 	if(coupsjoue<=nbcoups)
 	{
-		var test = verifier(persos,coords);
-		if(test != [1000,1000])
+		var test = verification(persos,coords);
+		if(test[0] == 1000 & test[1] == 1000) // si il y a erreur :
+		{
+			alert("Oh ! Missed !");
+			afficher(coords,true);
+			coupsjoue += 1;
+		}
+		else									// sinon :
 		{
 			booleens[test[0]][test[1]] = false;
 			afficher(coords,false);
 			alert("Yeah, on its face !");
 		}
-		else
-		{
-			alert("Oh ! Missed !");
-			afficher(coords,true);
-			nbcoups -= 1;
-		}
 		persoEnVie(booleens);
+		alert("You still have"+coupsjoue+" !")
 	}
 	else
 	{
 		alert("No more poo !");
 	}
-	coupsjoue += 1;
+
 }
 

@@ -59,10 +59,10 @@ function generer1(Char)
 			//generer un random entre 0 et 19 avec :
 			// 0-9 : Ligne
 			//10-19: colonne
-			var select = Math.floor(Math.random()*20);
+		var select = Math.floor(Math.random()*20);
 			// quand on a une ligne / col
 			// choisir un point de debut
-			var debut = Math.floor(Math.random()*(10-Char.taille));
+		var debut = Math.floor(Math.random()*(10-Char.taille));
 		for(var i = 0; i < Char.taille; i++)
 		{
 			//suivre les coordonnées "taille" fois
